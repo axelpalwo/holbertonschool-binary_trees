@@ -11,7 +11,7 @@ void binary_tree_delete(binary_tree_t *tree)
 
 	current = tree;
 	if (tree)
-	{	
+	{
 		if (current->right)
 		{
 			child = current->right;

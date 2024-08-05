@@ -15,11 +15,15 @@ void binary_tree_delete(binary_tree_t *tree)
 		if (current->right)
 		{
 			child = current->right;
+			free(child->right);
+			free(child->left);
 			free(child);
 		}
 		if (current->left)
 		{
 			child = current->left;
+			free(child->right);
+			free(child->left);
 			free(child);
 		}
 		free(tree);

@@ -7,48 +7,11 @@
 void binary_tree_delete(binary_tree_t *tree)
 {
 	binary_tree_t *current;
+	binary_tree_t *child;
 
 	current = tree;
-	if (!tree)
+	if (tree)
 	{
-		/* Voy todo a la izquierda */
-		while (current->left)
-		{
-			current = current->left;
-		}
-		/* Subimos desde abajo un nivel a la vez y vamos liberando izq y der */
-		while (current != tree)
-		{
-			current = current->parent;
-			free(current->left);
-			if (current->right)
-			{
-				current = current->right;
-				free(current->left);
-				free(current->right);
-				current = current->parent;
-			}
-			free(current->right);
-		}
-		/* Voy todo a la derecha */
-		while (current->right)
-		{
-			current = current->right;
-		}
-		/* Subimos desde abajo un nivel a la vez y vamos liberando izq y der */
-		while (current != tree)
-		{
-			current = current->parent;
-			free(current->right);
-			if (current->left)
-			{
-				current = current->left;
-				free(current->left);
-				free(current->right);
-				current = current->parent;
-			}
-			free(current->left);
-		}
 		free(tree);
 	}
 }

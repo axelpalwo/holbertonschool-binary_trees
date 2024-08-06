@@ -1,5 +1,25 @@
 #include "binary_trees.h"
+/**
+ * getheight - Gets the height of a binary tree
+ * @tree: Pointer to node in tree
+ * @height: Actual Height of Node
+ * Return: Level of height
+ */
+int getheight(const binary_tree_t *tree, int height)
+{
+	int hl = height, hr = height;
 
+	if (tree)
+	{
+		if (tree->left)
+			hl = getheight(tree->left, height + 1);
+		if (tree->right)
+			hr = getheight(tree->right, height + 1);
+	}
+	if (hl < hr)
+		return (hr);
+	return (hl);
+}
 /**
  * binary_tree_height - measures the height of a given tree
  * @tree: tree to mesure height
@@ -7,25 +27,7 @@
  */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	const binary_tree_t *current;
-	size_t i = 0;
-	size_t o = 0;
-
-	current = tree;
 	if (!tree)
-		return (i);
-	while (current->left && current->right)
-	{
-		i++;
-		current = current->left;
-	}
-	current = tree;
-	while (current->right && current->left)
-	{
-		o++;
-		current = current->right;
-	}
-	if (i > o)
-		return (i);
-	return (o);
+		return (0);
+	return (getheight(tree, 0));
 }

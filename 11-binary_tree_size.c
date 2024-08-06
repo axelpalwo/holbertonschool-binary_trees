@@ -8,6 +8,7 @@
 size_t getsize(const binary_tree_t *tree, size_t count)
 {
 	size_t a = count, b = count;
+
 	if (tree)
 	{
 		if (tree->left)
@@ -15,7 +16,6 @@ size_t getsize(const binary_tree_t *tree, size_t count)
 		if (tree->right)
 			b += getsize(tree->right, count);
 	}
-//	printf("Donde el nodo vale %u, count es %li\n", tree->n, count);
 	return ((a + b));
 }
 /**

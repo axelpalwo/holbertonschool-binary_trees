@@ -9,9 +9,9 @@ int getfulltree(const binary_tree_t *tree, int result)
 	if (tree)
 	{
 		if (tree->left)
-			result = getfulltree(tree->left, result);
+			result *= getfulltree(tree->left, result);
 		if (tree->right)
-			result = getfulltree(tree->right, result);
+			result *= getfulltree(tree->right, result);
 		if ((!tree->left && !tree->right) || (tree->left && tree->left))
 			return (result * 1);
 	}

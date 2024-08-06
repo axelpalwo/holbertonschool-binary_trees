@@ -8,6 +8,7 @@ int getfulltree(const binary_tree_t *tree)
 {
 	int result = 1;
 
+	printf("Este es el nodo %i\n", tree->n);
 	if (tree)
 	{
 		if (tree->left)

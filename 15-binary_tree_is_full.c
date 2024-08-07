@@ -14,7 +14,7 @@ int getfulltree(const binary_tree_t *tree, int result)
 		if (tree->right)
 			result *= getfulltree(tree->right, result);
 		if ((!tree->left && !tree->right) 
-				|| (tree->left && tree->left))
+				|| (tree->left && tree->right))
 			return (result * 1);
 	}
 	return (result * 0);
